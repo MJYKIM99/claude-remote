@@ -17,7 +17,7 @@
 
 ---
 
-> **Tactic Remote v1.8.0 is now available.** Chat Mode is easier to read, Quick Prompts make repeat workflows faster, mobile Git review helps you inspect changes from your phone, and the Mac companion app is more reliable during long-running sessions.
+> **Tactic Remote v1.8.2 is now available.** Conversation history is restored automatically on reconnect, the chat no longer freezes on very long streaming answers, failures are reported more clearly, and the companion server is hardened against unexpected errors.
 
 ---
 
@@ -29,13 +29,13 @@ It is built for developers who want to stay close to AI coding sessions without 
 
 ---
 
-## What's New in 1.8.0
+## What's New in 1.8.2
 
-- **Chat Mode refinements** — Messages, tool activity, Thinking blocks, and streaming output are easier to read on mobile.
-- **Quick Prompts Library** — Save reusable review, debugging, testing, and handoff prompts for one-tap reuse.
-- **Mobile Git review** — Inspect changed files and per-file diffs from the phone before deciding what the agent should do next.
-- **Server compatibility checks** — See server version, protocol version, platform, and supported capabilities more clearly.
-- **Mac companion reliability** — Prevent Sleep support helps keep long-running AI coding sessions available, and in-app update checks remain supported.
+- **Durable conversation history** — The companion server keeps an authoritative record of each session and replays it on reconnect. Your conversation survives reconnects, app restarts, and switching between devices — always in the correct order.
+- **Freeze fix for long answers** — Fixed an issue where the chat could stop responding while rendering very long streaming answers; long content now scrolls and renders far more smoothly.
+- **Single-bubble replies & queued prompts** — Assistant answers render as one bubble instead of fragments, and prompts queued while the agent is running now appear in the conversation.
+- **Clearer failures** — Authentication failures show a clear prompt to check your API key, approval cards keep their allowed/denied state after reconnecting, and queued messages are delivered more reliably.
+- **Server hardening** — The companion server (Mac, Linux, Windows) recovers safely and quickly from unexpected internal errors.
 
 ---
 
@@ -154,7 +154,7 @@ npx tacticremote [options]
 
 If you prefer a graphical interface:
 
-1. **Download** the DMG from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.0)
+1. **Download** the DMG from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2)
 2. **Install** by opening the DMG and dragging **Tactic Remote** to Applications
 3. **Launch** from Applications; a menu bar icon will appear
 4. **Start Server** from the menu bar app
@@ -175,7 +175,7 @@ The Mac app also provides:
 
 > 🟡 **Preview release.** The Windows companion is published as a preview. Most flows work, but expect rough edges compared to the Mac app and iOS app. We recommend macOS users continue using the Mac companion; we welcome bug reports from Windows users.
 
-1. **Download** the installer from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.0): `TacticRemote-Windows-Setup-1.8.0.exe`
+1. **Download** the installer from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2): `TacticRemote-Windows-Setup-1.8.2.exe`
 2. **Install** by running the installer (Windows 10 or 11, x64)
 3. **Launch** Tactic Remote from the Start menu
 4. **Start Server** from the app window
@@ -203,14 +203,14 @@ Known limitations of the preview:
 <td align="center" width="25%">
 <b>Mac App</b><br>
 <i>macOS 14.6+</i><br><br>
-<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.0">
+<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2">
 <img src="https://img.shields.io/badge/Download-DMG-success.svg?style=for-the-badge&logo=apple" width="160" alt="Download DMG">
 </a>
 </td>
 <td align="center" width="25%">
 <b>Windows App</b> 🟡<br>
 <i>Windows 10/11 — Preview</i><br><br>
-<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.0">
+<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2">
 <img src="https://img.shields.io/badge/Download-EXE%20(Preview)-orange.svg?style=for-the-badge&logo=windows" width="160" alt="Download Windows Installer (Preview)">
 </a>
 </td>
