@@ -4,7 +4,7 @@
 
 # Tactic Remote
 
-### Control Claude Code, Codex, and Amp from your iPhone or iPad
+### Control Claude Code, Codex, Amp, and Droid from your iPhone or iPad
 
 [![iOS](https://img.shields.io/badge/iOS-16.4%2B-blue.svg?style=flat&logo=apple&logoColor=white)](https://apps.apple.com/us/app/tactic-remote-ai-coding/id6758008464)
 [![macOS](https://img.shields.io/badge/macOS-14.6%2B-green.svg?style=flat&logo=apple&logoColor=white)](https://github.com/TacticSpaceTech/TacticRemote/releases)
@@ -17,25 +17,26 @@
 
 ---
 
-> **Tactic Remote v1.8.2 is now available.** Conversation history is restored automatically on reconnect, the chat no longer freezes on very long streaming answers, failures are reported more clearly, and the companion server is hardened against unexpected errors.
+> **Tactic Remote v1.9.0 is now available.** Check Claude, Codex, Amp, and Droid usage limits from your phone, launch Droid sessions, and keep work moving through more reliable reconnects, session recovery, and notification routing.
 
 ---
 
 ## Overview
 
-Tactic Remote brings AI coding agents to your iPhone or iPad. Run Claude Code, OpenAI Codex, or Sourcegraph Amp on your computer, then monitor output, send prompts, approve blocking steps, review code changes, and keep long-running work moving from your mobile device.
+Tactic Remote brings AI coding agents to your iPhone or iPad. Run Claude Code, OpenAI Codex, Sourcegraph Amp, or Factory Droid on your computer, then monitor output, send prompts, approve blocking steps, review code changes, and keep long-running work moving from your mobile device.
 
 It is built for developers who want to stay close to AI coding sessions without staying at their desk.
 
 ---
 
-## What's New in 1.8.2
+## What's New in 1.9.0
 
-- **Durable conversation history** — The companion server keeps an authoritative record of each session and replays it on reconnect. Your conversation survives reconnects, app restarts, and switching between devices — always in the correct order.
-- **Freeze fix for long answers** — Fixed an issue where the chat could stop responding while rendering very long streaming answers; long content now scrolls and renders far more smoothly.
-- **Single-bubble replies & queued prompts** — Assistant answers render as one bubble instead of fragments, and prompts queued while the agent is running now appear in the conversation.
-- **Clearer failures** — Authentication failures show a clear prompt to check your API key, approval cards keep their allowed/denied state after reconnecting, and queued messages are delivered more reliably.
-- **Server hardening** — The companion server (Mac, Linux, Windows) recovers safely and quickly from unexpected internal errors.
+- **Agent usage at a glance** — View current Claude, Codex, Amp, and Droid usage limits in the sidebar. Account data is read locally from the signed-in computer.
+- **Droid support** — Factory Droid joins the agent picker alongside Claude Code, Codex, and Amp.
+- **Smarter recovery** — Reconnect and session recovery are more reliable after network changes, device switches, or companion restarts.
+- **Better routing** — Notifications return to the originating conversation, and choosing a folder with an existing session switches to it correctly.
+- **More accurate state** — Session lists and plan limits stay correct across restarts, with regional voice routing and broader stability improvements.
+- **Privacy-conscious analytics** — Optional pseudonymous product analytics never include code, prompts, terminal output, file paths, or project names and can be disabled in Settings.
 
 ---
 
@@ -53,7 +54,7 @@ Save common review, test, debug, and summary prompts so repeat workflows are alw
 View changed files, inspect diffs, and decide whether an agent's work should continue
 
 ### **Multi-Agent Sessions**
-Choose Claude Code, OpenAI Codex, or Sourcegraph Amp when creating a session
+Choose Claude Code, OpenAI Codex, Sourcegraph Amp, or Factory Droid when creating a session
 
 ### **Git Worktree Workflow**
 Group sibling worktrees and switch between parallel implementation branches
@@ -77,7 +78,7 @@ Send files from iOS to the remote server
 Create, switch, and delete multiple tmux sessions
 
 ### **Remote File Browser**
-Browse your Mac's file system and select project directories from iOS
+Browse your computer's file system and select project directories from iOS
 
 ### **Local & Remote Access**
 Connect via Wi-Fi or Cloudflare Tunnel, with automatic fallback switching
@@ -101,7 +102,7 @@ Protect sessions with Face ID or Touch ID
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                                                                          │
 │   ┌─────────────────┐            WebSocket            ┌─────────────────┐│
-│   │   iOS Device    │                                 │   Mac / Linux   ││
+│   │   iOS Device    │                                 │ Mac/Linux/Win   ││
 │   │                 │  ◄─────────────────────────►    │                 ││
 │   │  Tactic Remote  │    ws://local or wss://         │  Server (Node)  ││
 │   │      App        │                                 │                 ││
@@ -110,7 +111,8 @@ Protect sessions with Face ID or Touch ID
 │                                                                ▼         │
 │                                                       ┌─────────────────┐│
 │                                                       │ Coding Agent    ││
-│                                                       │ Claude/Codex/Amp││
+│                                                       │Claude/Codex/Amp/││
+│                                                       │      Droid      ││
 │                                                       └─────────────────┘│
 │                                                                          │
 └──────────────────────────────────────────────────────────────────────────┘
@@ -120,7 +122,7 @@ Protect sessions with Face ID or Touch ID
 
 | Method | Platform | Command |
 |--------|----------|---------|
-| **npx** | Mac / Linux / Windows | `npx tacticremote` |
+| **npx** | Mac / Linux | `npx tacticremote` |
 | **Homebrew** | Mac | `brew install TacticSpaceTech/tap/tacticremote` |
 | **Mac App** | macOS 14.6+ | Menu bar GUI with one-click start and auto-update |
 | **Windows App** (Preview) | Windows 10/11 x64 | Companion app — preview release, may have issues |
@@ -129,7 +131,7 @@ Protect sessions with Face ID or Touch ID
 
 ## Quick Start
 
-The fastest way to get started is one command:
+The fastest way to get started on Mac or Linux is one command:
 
 ```bash
 npx tacticremote
@@ -154,7 +156,7 @@ npx tacticremote [options]
 
 If you prefer a graphical interface:
 
-1. **Download** the DMG from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2)
+1. **Download** the DMG from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.9.0)
 2. **Install** by opening the DMG and dragging **Tactic Remote** to Applications
 3. **Launch** from Applications; a menu bar icon will appear
 4. **Start Server** from the menu bar app
@@ -175,7 +177,7 @@ The Mac app also provides:
 
 > 🟡 **Preview release.** The Windows companion is published as a preview. Most flows work, but expect rough edges compared to the Mac app and iOS app. We recommend macOS users continue using the Mac companion; we welcome bug reports from Windows users.
 
-1. **Download** the installer from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2): `TacticRemote-Windows-Setup-1.8.2.exe`
+1. **Download** the installer from [Releases](https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.9.0): `TacticRemote-Windows-Setup-1.9.0.exe`
 2. **Install** by running the installer (Windows 10 or 11, x64)
 3. **Launch** Tactic Remote from the Start menu
 4. **Start Server** from the app window
@@ -183,6 +185,7 @@ The Mac app also provides:
 
 Known limitations of the preview:
 
+- The installer is not yet code-signed, so Windows SmartScreen may show a warning. Verify that it came from the official Tactic Remote release page before continuing.
 - Some terminal scenarios (long ConPTY sessions, complex pairings) may need restart
 - Auto-update is not yet enabled — new versions install manually
 - Please report issues at [the issue tracker](https://github.com/TacticSpaceTech/TacticRemote/issues)
@@ -203,20 +206,20 @@ Known limitations of the preview:
 <td align="center" width="25%">
 <b>Mac App</b><br>
 <i>macOS 14.6+</i><br><br>
-<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2">
+<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.9.0">
 <img src="https://img.shields.io/badge/Download-DMG-success.svg?style=for-the-badge&logo=apple" width="160" alt="Download DMG">
 </a>
 </td>
 <td align="center" width="25%">
 <b>Windows App</b> 🟡<br>
 <i>Windows 10/11 — Preview</i><br><br>
-<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.8.2">
+<a href="https://github.com/TacticSpaceTech/TacticRemote/releases/tag/v1.9.0">
 <img src="https://img.shields.io/badge/Download-EXE%20(Preview)-orange.svg?style=for-the-badge&logo=windows" width="160" alt="Download Windows Installer (Preview)">
 </a>
 </td>
 <td align="center" width="25%">
 <b>CLI</b><br>
-<i>Mac / Linux / Windows</i><br><br>
+<i>Mac / Linux</i><br><br>
 <code>npx tacticremote</code>
 </td>
 </tr>
@@ -230,11 +233,11 @@ Known limitations of the preview:
 |----------|----------------|-------|
 | **iOS** | 16.4 | iPhone or iPad |
 | **macOS** | 14.6 Sonoma | For Mac app or CLI |
-| **Windows** | 10 or 11 (x64) | For Windows companion app (Preview) or CLI |
+| **Windows** | 10 or 11 (x64) | For Windows companion app (Preview) |
 | **Linux** | Any | For CLI (`npx tacticremote`) |
 | **Node.js** | 16.0+ | Required for CLI; auto-installed by Mac app when needed |
-| **tmux** | Latest | Auto-installed by Mac app or Homebrew |
-| **AI coding agent CLI** | Latest | Install and sign in to at least one: Claude Code, OpenAI Codex, or Sourcegraph Amp |
+| **tmux** | Latest | Required by Mac/Linux backends; auto-installed by the Mac app or Homebrew |
+| **AI coding agent CLI** | Latest | Install and sign in to at least one: Claude Code, OpenAI Codex, Sourcegraph Amp, or Factory Droid |
 
 ---
 
@@ -248,7 +251,7 @@ Default mode for home or office use.
 ws://192.168.1.x:8765
 ```
 
-Ensure your iOS device and Mac are on the same Wi-Fi network.
+Ensure your iOS device and computer are on the same Wi-Fi network.
 
 ### Public Access with Cloudflare Tunnel
 
@@ -290,9 +293,9 @@ Public access uses Cloudflare's secure tunnel with TLS encryption, so you do not
 
 ### Cannot connect to server
 
-- Verify Mac and iOS are on the same network
-- Check Mac firewall allows connections on port 8765
-- Confirm server is running: `lsof -i :8765`
+- Verify your computer and iOS device are on the same network
+- Check that the computer firewall allows connections on port 8765
+- Confirm the server is running: `lsof -i :8765` on Mac/Linux or `Get-NetTCPConnection -LocalPort 8765` in Windows PowerShell
 
 ### Connection drops frequently
 
@@ -302,7 +305,7 @@ Public access uses Cloudflare's secure tunnel with TLS encryption, so you do not
 
 ### Agent not starting
 
-- Ensure your selected agent CLI is installed and signed in: `claude --version`, `codex --version`, or `amp --version`
+- Ensure your selected agent CLI is installed and signed in: `claude --version`, `codex --version`, `amp --version`, or `droid --version`
 - Check tmux is installed: `tmux -V`
 - Verify the working directory exists
 
